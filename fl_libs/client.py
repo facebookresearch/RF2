@@ -61,9 +61,6 @@ class Client:
 
             # Stochastic quantization
             if self.comm_quantize_bits >= 1:
-                if self.args.quantize_layers != "" and self.args.quantize_layers not in name:
-                    continue
-
                 if self.comm_quantize_separate_sign:
                     min_t = 0
                     max_t = torch.max(torch.abs(grad[name]))
